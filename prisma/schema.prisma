@@ -16,7 +16,7 @@ datasource db {
 
 model Author {
   id        String @id @default(uuid())
-  name      String
+  name      String @unique
   country   String
   books     Book[]
 }
