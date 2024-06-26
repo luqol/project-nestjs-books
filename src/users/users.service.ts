@@ -1,6 +1,6 @@
 import { Injectable, ConflictException } from '@nestjs/common';
-import { PrismaService } from 'src/shared/shared/prisma.service';
 import { User } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
@@ -23,7 +23,7 @@ export class UsersService {
         })
     }
 
-    public async create(userData: Omit<User, 'id'>, password: string): Promise<User>{
+    public async create(userData: Omit<User, 'id' | 'role'>, password: string): Promise<User>{
         try{
             return await this.prismaService.user.create( {
                 data: {

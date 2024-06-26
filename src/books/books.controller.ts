@@ -1,6 +1,5 @@
 import { Controller, Delete, Get, Post, Put, Body, NotFoundException, Param, ParseUUIDPipe } from '@nestjs/common';
 import { BooksService } from './books.service';
-import { NotFoundError } from 'rxjs';
 import { CreateBookDTO } from './dtos/create-book.dto';
 import { UpdateBookDTO } from './dtos/update-book.dto';
 
