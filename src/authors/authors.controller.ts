@@ -12,6 +12,11 @@ export class AuthorsController {
       return this.authorService.getAll();
     }
 
+    @Get('/extended')
+    getAllExtended() {
+      return this.authorService.getAllExtended();
+    }
+
     @Get('/:id')
     async getById(@Param('id', new ParseUUIDPipe()) id: string){
         const a = await this.authorService.getById(id);

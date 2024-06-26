@@ -10,6 +10,12 @@ export class AuthorsService {
         return this.prismaService.author.findMany();
     } 
 
+    public getAllExtended(): Promise<Author[]> {
+      return this.prismaService.author.findMany( {
+        include: {books: true}
+      });
+  } 
+
     public getById(id: Author['id']): Promise<Author> {
         return this.prismaService.author.findUnique({
             where: { id }
@@ -47,4 +53,5 @@ export class AuthorsService {
         throw err;
       }
     }
+    
 }
